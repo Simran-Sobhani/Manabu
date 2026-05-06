@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './flashcard.css'
 
 
-export default function Flashcard({keyVal, wordObj, accessNextCard, accessPrevCard, totalCards}){
+export default function Flashcard({keyVal, wordObj, accessNextCard, accessPrevCard, totalCards, setView}){
     let meaning = wordObj.meanings?.[0]?.["glosses"]?.[0] || "N/A";
     let pronounced = wordObj["variants"]?.[0]?.["pronounced"] || "N/A";
     let written = wordObj["variants"]?.[0]?.["written"] || "N/A";
@@ -11,20 +11,22 @@ export default function Flashcard({keyVal, wordObj, accessNextCard, accessPrevCa
 
     if (totalCards){
         return (
-            
-            <div key={keyVal} className='flash-card'>
-                <p>{keyVal + 1}/{totalCards}</p>
-                <div className="front">
-                    <h2 className="kanji">{written}</h2>
+            <div>
+                <button onClick={() => setView("deck")} >Back</button>
+                <div key={keyVal} className='flash-card'>
+                    <p>{keyVal + 1}/{totalCards}</p>
+                    <div className="front">
+                        <h2 className="kanji">{written}</h2>
+                    </div>
+                    {showAnswer ? <div className="back"><p className="pronounced">{pronounced}</p><p className="meaning">{meaning}</p></div> : "" }
+                    
+                    <div>
+                        <button onClick={accessPrevCard} disabled={keyVal == 0}>Prev</button>
+                        <button onClick={() => setShowAnswer(!showAnswer)}>{showAnswer?"Hide Answer":"Show Answer"}</button>
+                        <button onClick={accessNextCard} disabled={keyVal == totalCards - 1}>Next</button>
+                    </div>
+        
                 </div>
-                {showAnswer ? <div className="back"><p className="pronounced">{pronounced}</p><p className="meaning">{meaning}</p></div> : "" }
-                
-                <div>
-                    <button onClick={accessPrevCard} disabled={keyVal == 0}>Prev</button>
-                    <button onClick={() => setShowAnswer(!showAnswer)}>{showAnswer?"Hide Answer":"Show Answer"}</button>
-                    <button onClick={accessNextCard} disabled={keyVal == totalCards - 1}>Next</button>
-                </div>
-    
             </div>
         )
     } else {
