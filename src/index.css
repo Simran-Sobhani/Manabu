@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin:  0;
+    box-sizing: border-box;
+}
+
+:root {
+    --FONT-FAMILY: "Inter", sans-serif;
+    --BLUE-WHITE: #F8FAFC;
+    --BLUE-BLACK: #1A1A2E;
+    --CYAN-BLUE: #3B82F6;
+    --REDDISH-ORANGE: #FF6600;
+}
+
+body {
+    font-family: var(--FONT-FAMILY);
+    background-color: var(--BLUE-WHITE);
+    color: var(--BLUE-BLACK);
+}
