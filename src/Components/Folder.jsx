@@ -1,10 +1,13 @@
 
 
-export default function Folder({name, onClick}){
+export default function Folder({name, setView, getWords}){
     return (
-        <div>
-            <div onClick={onClick} id={name} >
-                <h2>{name}</h2>
+        <div style={{cursor: "pointer"}}>
+            <div onClick={() => {
+                setView("cards");
+                getWords(name);
+                }} id={name} >
+                <p>Words for {name}</p>
             </div>
         </div>
     )

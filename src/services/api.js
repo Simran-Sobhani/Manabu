@@ -1,6 +1,6 @@
 const API_URL = "https://kanjiapi.dev/v1"
 
-async function fetchKanjiLetters(){
+export async function fetchKanjiLetters(){
     const api = API_URL + "/kanji/grade-1";
     try {
         let response = await fetch(api);
@@ -11,8 +11,8 @@ async function fetchKanjiLetters(){
     }
 }
 
-export async function fetchWords() {
-    const api = API_URL + "/words/蠍";
+export async function fetchWords(char="蠍") {
+    const api = API_URL + "/words/" + char;
     try {
         let response = await fetch(api);
         let data = await response.json();
