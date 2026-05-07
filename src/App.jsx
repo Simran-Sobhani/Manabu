@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import Folder  from "./Components/Folder";
 import Flashcard from "./Components/Flashcard";
 import { fetchKanjiLetters, fetchWords } from "./services/api";
-
+import Header from "./Components/Header";
+ 
 function App() {
   const [decks, setDecks] = useState([]);
   const [words, setWords] = useState([]);
@@ -50,20 +51,33 @@ function App() {
     return "Loading..."
   }
 
-  if (view == "deck"){
-    return (
-      <div id="decks">
-        {decks.map((deck, idx) => <div className="deck"><Folder key={idx} name={deck} setView={setView} getWords={getWords} /></div> )}
-      </div>
-      
-    )
-  }
-
   return (
     <>
+    <Header className="contain"/>
 
-      {<Flashcard key={currentCard} keyVal={currentCard} wordObj={words[currentCard]} accessNextCard={accessNextCard} accessPrevCard={accessPrevCard} totalCards={words.length} setView={setView} />}
-      
+    {view === "deck" ? (
+      <div id="decks">
+        {decks.map((deck, idx) => (
+          <div className="deck" key={idx}>
+            <Folder
+              name={deck}
+              setView={setView}
+              getWords={getWords}
+            />
+          </div>
+        ))}
+      </div>
+    ) : (
+      <Flashcard
+        key={currentCard}
+        keyVal={currentCard}
+        wordObj={words[currentCard]}
+        accessNextCard={accessNextCard}
+        accessPrevCard={accessPrevCard}
+        totalCards={words.length}
+        setView={setView}
+      />
+    )}
     </>
   )
 }

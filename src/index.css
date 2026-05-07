@@ -31,3 +31,9 @@ body {
     /* border: 1px solid var(--BLUE-BLACK); */
     padding: 10px;
 }
+
+.contain{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #ced8ff;
+}
