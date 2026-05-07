@@ -54,7 +54,7 @@ function App() {
 
   return (
     <>
-    <Header className="contain"/>
+    {/* <Header className="contain"/> */}
 
     {view === "deck" ? (
       <div id="decks">
