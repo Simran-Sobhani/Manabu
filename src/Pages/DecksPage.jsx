@@ -2,11 +2,13 @@ import Folder from "../Components/Folder";
 import Loading from "../Components/Loading";
 import Header from "../Components/Header";
 import { useEffect, useState } from "react";
-import { fetchKanjiLetters, fetchWords } from "../services/api";
+import { fetchKanjiLetters } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
-export default function DecksPage({ setView, setSelectedChar }) {
+export default function DecksPage() {
   const [decks, setDecks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchKanjiLetters().then((data) => {
@@ -21,14 +23,13 @@ export default function DecksPage({ setView, setSelectedChar }) {
 
   return (
     <div>
-      <Header />
       <div id="decks">
         {decks.map((deck, idx) => (
-          <div className="deck" key={idx}>
+          <div className="deck" key={idx} onClick={() => {
+            navigate("/deck/" + deck);
+          }}>
             <Folder
               name={deck}
-              setView={setView}
-              setSelectedChar={setSelectedChar}
             />
           </div>
         ))}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./folder.css";
 
-export default function Folder({ name, setView, setSelectedChar }) {
+export default function Folder({ name }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -9,10 +9,6 @@ export default function Folder({ name, setView, setSelectedChar }) {
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onClick={() => {
-          setView("cards");
-          setSelectedChar(name);
-        }}
         id={name}
         className="folder"
       >

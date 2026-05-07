@@ -3,32 +3,36 @@ import Flashcard from "../Components/Flashcard";
 import { useState } from "react";
 import { fetchWords } from "../services/api";
 import Loading from "../Components/Loading";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function FlashcardPage({ setView, selectedChar }) {
+export default function FlashcardPage() {
   const [words, setWords] = useState([]);
   const [currentCard, setCurrentCard] = useState(0);
   const [loading, setLoading] = useState(true);
+  const { char } = useParams();
+  const navigate = useNavigate();
 
   const accessNextCard = function () {
-    if (currentCard < words.length - 1) {
-      setCurrentCard(currentCard + 1);
-    }
+    setCurrentCard((prev) => (prev < words.length - 1 ? prev + 1 : prev));
   };
 
   const accessPrevCard = function () {
-    if (currentCard > 0) {
-      setCurrentCard(currentCard - 1);
-    }
+    setCurrentCard((prev) => (prev > 0 ? prev - 1 : prev));
   };
 
   useEffect(() => {
     setLoading(true);
-    fetchWords(selectedChar).then((data) => {
+    fetchWords(char).then((data) => {
       setWords(data);
       setLoading(false);
       setCurrentCard(0);
     });
-  }, [selectedChar]);
+  }, [char]);
+
+  const goBack = () => {
+    navigate("/");
+  };
 
   if (loading) {
     return <Loading />;
@@ -42,7 +46,7 @@ export default function FlashcardPage({ setView, selectedChar }) {
       accessNextCard={accessNextCard}
       accessPrevCard={accessPrevCard}
       totalCards={words.length}
-      setView={setView}
+      goBack={goBack}
     />
   );
 }

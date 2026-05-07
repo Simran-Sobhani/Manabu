@@ -1,20 +1,32 @@
 import { useEffect, useState } from "react";
 import DecksPage from "./Pages/DecksPage";
 import FlashcardPage from "./Pages/FlashcardsPage";
+import LettersPage from "./Pages/LettersPage";
+import Header from "./Components/Header";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const [view, setView] = useState("deck");
-  const [selectedChar, setSelectedChar] = useState("");
 
   return (
     <>
-      {view === "deck" ? (
-        <DecksPage setView={setView} setSelectedChar={setSelectedChar} />
-      ) : (
-        <FlashcardPage setView={setView} selectedChar={selectedChar} />
-      )}
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={<DecksPage  />}
+        />
+        <Route
+          path="/deck/:char"
+          element={<FlashcardPage />}
+        />
+        <Route
+          path="/letters"
+          element={<LettersPage />}
+        />
+      </Routes>
     </>
   );
 }
 
 export default App;
+
