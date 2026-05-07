@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Folder  from "./Components/Folder";
 import Flashcard from "./Components/Flashcard";
+import Loading from "./Components/Loading";
 import { fetchKanjiLetters, fetchWords } from "./services/api";
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
   }
 
   if (isLoading){
-    return "Loading..."
+    return <Loading />;
   }
 
   if (view == "deck"){

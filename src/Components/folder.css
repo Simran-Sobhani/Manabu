@@ -8,3 +8,7 @@
 .folder-icon ion-icon {
     font-size: 120px;
 }
+
+.folder:hover {
+    background-color: #1a1a2e1b;
+}
