@@ -21,8 +21,7 @@ function Header() {
 
       <ul>
         <li>Home</li>
-        <li>Hiragana</li>
-        <li>Katakana </li>
+        <li>Letters</li>
       </ul>
 
       <img src={pro_pic} alt="" className='profile'/>
