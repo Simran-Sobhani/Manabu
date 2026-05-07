@@ -1,0 +1,25 @@
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.loading-anim {
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 5px solid var(--CYAN-BLUE);
+    border-top-color: var(--BLUE-WHITE);
+    animation: rotate 600ms infinite linear;
+}
+
+@keyframes rotate { 
+    to { 
+        transform: rotate(1turn)
+    }
+}
+
