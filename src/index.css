@@ -28,6 +28,6 @@ body {
 }
 
 .deck {
-    border: 1px solid var(--BLUE-BLACK);
+    /* border: 1px solid var(--BLUE-BLACK); */
     padding: 10px;
 }
