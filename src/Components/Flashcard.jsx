@@ -11,16 +11,16 @@ export default function Flashcard({keyVal, wordObj, accessNextCard, accessPrevCa
 
     if (totalCards){
         return (
-            <div>
-                <button onClick={() => setView("deck")} >Back</button>
+            <div className='container'>
+                <button onClick={() => setView("deck")} className='back-btn' >Back</button>
                 <div key={keyVal} className='flash-card'>
-                    <p>{keyVal + 1}/{totalCards}</p>
+                    <p className='card-number'>{keyVal + 1}/{totalCards}</p>
                     <div className="front">
                         <h2 className="kanji">{written}</h2>
                     </div>
-                    {showAnswer ? <div className="back"><p className="pronounced">{pronounced}</p><p className="meaning">{meaning}</p></div> : "" }
+                    <div className="back">{showAnswer ? <><p className="pronounced">{pronounced}</p><p className="meaning">{meaning}</p></> : "" }</div>
                     
-                    <div>
+                    <div className='btns'>
                         <button onClick={accessPrevCard} disabled={keyVal == 0}>Prev</button>
                         <button onClick={() => setShowAnswer(!showAnswer)}>{showAnswer?"Hide Answer":"Show Answer"}</button>
                         <button onClick={accessNextCard} disabled={keyVal == totalCards - 1}>Next</button>

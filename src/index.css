@@ -9,9 +9,10 @@
 :root {
     --FONT-FAMILY: "Inter", sans-serif;
     --BLUE-WHITE: #F8FAFC;
-    --BLUE-BLACK: #1A1A2E;
-    --CYAN-BLUE: #3B82F6;
-    --REDDISH-ORANGE: #FF6600;
+    --BLUE-BLACK: #111827;
+    --CYAN-BLUE: #2563EB;
+    --REDDISH: #EF4444;
+    --FERN-GREEN: #22C55E;
 }
 
 body {
@@ -19,6 +20,10 @@ body {
     background-color: var(--BLUE-WHITE);
     color: var(--BLUE-BLACK);
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
 }
 
 #decks {

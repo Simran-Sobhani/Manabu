@@ -1,10 +1,77 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 10px;
+
+}
+
+.back-btn {
+    border: 1px solid transparent;
+    color: var(--BLUE-WHITE);
+    padding: 10px;
+    font-size: 18px;
+    background-color: var(--CYAN-BLUE);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
 .flash-card {
     border: 1px solid var(--BLUE-BLACK);
     border-radius: 20px;
-    padding: 10px;
+    padding: 100px;
+    padding-top: 20px;
+    width: 90vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     text-align: center;
+    height: 70vh;
+}
+
+.card-number {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.front {
+    font-size: 30px;
+    height: 30%;
+}
+
+.back {
+    height: 60%;
+}
+
+.pronounced {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.meaning {
+    font-size: 20px;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.btns button {
+    background-color: var(--CYAN-BLUE);
+    color: var(--BLUE-WHITE);
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    border-color: transparent;
+    cursor: pointer;
+
+}
+
+.btns button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
